@@ -82,3 +82,39 @@ c:\mingw\include\stdlib.h:487:39: note: expected 'void *' but argument is of typ
 cc1.exe: all warnings being treated as errors
 Compilation failed
 7a6fa02
+Thu, Mar 20, 2025  6:54:39 PM: 
+ exercises.c | 5 -----
+ 1 file changed, 5 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'crea_lista':
+exercises.c:48:17: error: initialization makes integer from pointer without a cast [-Werror=int-conversion]
+       int num = (int*) malloc(i *sizeof(int));
+                 ^
+exercises.c:49:14: error: comparison between pointer and integer [-Werror]
+       if(num == NULL){
+              ^~
+exercises.c:53:7: error: invalid type argument of unary '*' (have 'int')
+       *num = i;
+       ^~~~
+exercises.c:54:16: error: expected expression before 'List'
+       pushBack(List *L, void *num);
+                ^~~~
+exercises.c:54:7: error: too few arguments to function 'pushBack'
+       pushBack(List *L, void *num);
+       ^~~~~~~~
+In file included from exercises.c:6:0,
+                 from test.c:5:
+arraylist.h:20:6: note: declared here
+ void pushBack(List *L, void *dato);
+      ^~~~~~~~
+In file included from test.c:5:0:
+exercises.c:55:12: error: passing argument 1 of 'free' makes pointer from integer without a cast [-Werror=int-conversion]
+       free(num);
+            ^~~
+In file included from test.c:2:0:
+c:\mingw\include\stdlib.h:487:39: note: expected 'void *' but argument is of type 'int'
+ _CRTIMP __cdecl __MINGW_NOTHROW  void free (void *);
+                                       ^~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+06f07fb
