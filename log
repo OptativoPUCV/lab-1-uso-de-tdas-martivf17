@@ -12,3 +12,34 @@ exercises.c:47:30: error: invalid application of 'sizeof' to incomplete type 'Li
                               ^~~~
 Compilation failed
 f186d61
+Thu, Mar 20, 2025  6:52:15 PM: 
+ exercises.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+exercises.c: In function 'crea_lista':
+exercises.c:47:35: error: invalid application of 'sizeof' to incomplete type 'List {aka struct List}'
+    L = (List*) malloc(10 * sizeof(List));
+                                   ^~~~
+exercises.c:53:17: error: initialization makes integer from pointer without a cast [-Werror=int-conversion]
+       int num = (int*) malloc(i *sizeof(int));
+                 ^
+exercises.c:54:14: error: comparison between pointer and integer [-Werror]
+       if(num == NULL){
+              ^~
+exercises.c:58:7: error: invalid type argument of unary '*' (have 'int')
+       *num = i;
+       ^~~~
+exercises.c:59:16: error: expected expression before 'List'
+       pushBack(List *L, void *num);
+                ^~~~
+exercises.c:59:7: error: too few arguments to function 'pushBack'
+       pushBack(List *L, void *num);
+       ^~~~~~~~
+In file included from exercises.c:6:0,
+                 from test.c:5:
+arraylist.h:20:6: note: declared here
+ void pushBack(List *L, void *dato);
+      ^~~~~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+4335abf
