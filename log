@@ -2,3 +2,13 @@ Thu, Mar 20, 2025  6:24:29 PM:
  tests:  1|4
 total_score: 10/70
 3f6cb15
+Thu, Mar 20, 2025  6:42:34 PM: 
+ exercises.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+In file included from test.c:5:0:
+exercises.c: In function 'crea_lista':
+exercises.c:47:30: error: invalid application of 'sizeof' to incomplete type 'List {aka struct List}'
+    L = (List*) malloc(sizeof(List));
+                              ^~~~
+Compilation failed
+f186d61
