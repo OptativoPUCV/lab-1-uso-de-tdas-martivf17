@@ -57,8 +57,9 @@ List* crea_lista() {
 
       *num = i;
       pushBack(List *L, void *num);
+      free(num);
    }
-
+   
    return L;
 }
 
