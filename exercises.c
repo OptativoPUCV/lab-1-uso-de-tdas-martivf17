@@ -140,25 +140,17 @@ int parentesisBalanceados(char *cadena) {
 
    char *dato = first(cadena);
    while(*dato != ')' && *dato != '}' && *dato != ']' && dato != NULL){
-      P1 = (Stack*) malloc(sizeof(Stack*));
-      if(P1 == NULL) exit(EXIT_FAILURE);
-
       push(P1, dato);
       dato = next(cadena);
    }
 
    dato = next(cadena);
    while(dato != NULL){
-      aux = (Stack*) malloc(sizeof(Stack*));
-      if(aux == NULL) exit(EXIT_FAILURE);
-
       push(aux, dato);
       dato = next(cadena);
    }
 
    while(top(aux) != NULL){
-      P2 = (Stack*) malloc(sizeof(Stack*));
-      if(P2 == NULL) exit(EXIT_FAILURE);
       push(P2, top(aux));
       pop(aux);
    }
