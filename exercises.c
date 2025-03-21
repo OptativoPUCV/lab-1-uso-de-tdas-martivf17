@@ -86,11 +86,11 @@ posiciona en el elemento anterior.
 
 void eliminaElementos(List*L, int elem)
 {
-   int *dato = first(L);
+   void *dato = first(L);
 
    while(dato != NULL)
    {
-      if(*dato == elem)
+      if(*(int*)dato == elem)
       {
          popCurrent(L);
          dato = first(L);
@@ -134,6 +134,39 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 */
 
 int parentesisBalanceados(char *cadena) {
+   Stack *P1 = create_stack();
+   Stack *P2 = create_stack();
+   Stack *aux = create_stack();
+
+   char *dato = first(cadena);
+   while(*dato != ')' || *dato != '}' || *dato != ']'){
+      push(P1, dato);
+      dato = next(cadena);
+   }
+
+   dato = next(cadena);
+   while(dato != NULL){
+      push(aux, dato);
+      dato = next(cadena);
+   }
+
+   while(top(aux) != NULL){
+      push(P2, top(aux));
+      pop(aux);
+   }
+
+   while(top(P1) != NULL || top(P2) != NULL){
+      if(top(P1) == '('){
+         if(top(P2) != ')') return 0;
+      }
+      else if(top(P1) == '['){
+         if(top(P2) != ']') return 0;
+      }
+      else{
+         if(top(P2) != '}') return 0;
+      }
+   }
+   free(aux);
    return 0;
 }
 

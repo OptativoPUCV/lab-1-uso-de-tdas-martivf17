@@ -146,3 +146,62 @@ Thu, Mar 20, 2025  9:17:02 PM:
  tests:  4|1
 total_score: 50/70
 08ae0f9
+Fri, Mar 21, 2025 10:15:53 AM: 
+ exercises.c | 37 +++++++++++++++++++++++++++++++++++--
+ 1 file changed, 35 insertions(+), 2 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'parentesisBalanceados':
+exercises.c:141:23: error: passing argument 1 of 'first' from incompatible pointer type [-Werror=incompatible-pointer-types]
+    char *dato = first(cadena);
+                       ^~~~~~
+In file included from exercises.c:6:0,
+                 from test.c:5:
+arraylist.h:10:7: note: expected 'List * {aka struct List *}' but argument is of type 'char *'
+ void* first(List *L);
+       ^~~~~
+In file included from test.c:5:0:
+exercises.c:144:19: error: passing argument 1 of 'next' from incompatible pointer type [-Werror=incompatible-pointer-types]
+       dato = next(cadena);
+                   ^~~~~~
+In file included from exercises.c:6:0,
+                 from test.c:5:
+arraylist.h:14:7: note: expected 'List * {aka struct List *}' but argument is of type 'char *'
+ void* next(List *L);
+       ^~~~
+In file included from test.c:5:0:
+exercises.c:147:16: error: passing argument 1 of 'next' from incompatible pointer type [-Werror=incompatible-pointer-types]
+    dato = next(cadena);
+                ^~~~~~
+In file included from exercises.c:6:0,
+                 from test.c:5:
+arraylist.h:14:7: note: expected 'List * {aka struct List *}' but argument is of type 'char *'
+ void* next(List *L);
+       ^~~~
+In file included from test.c:5:0:
+exercises.c:150:19: error: passing argument 1 of 'next' from incompatible pointer type [-Werror=incompatible-pointer-types]
+       dato = next(cadena);
+                   ^~~~~~
+In file included from exercises.c:6:0,
+                 from test.c:5:
+arraylist.h:14:7: note: expected 'List * {aka struct List *}' but argument is of type 'char *'
+ void* next(List *L);
+       ^~~~
+In file included from test.c:5:0:
+exercises.c:159:18: error: comparison between pointer and integer [-Werror]
+       if(top(P1) == '('){
+                  ^~
+exercises.c:160:21: error: comparison between pointer and integer [-Werror]
+          if(top(P2) != ')') return 0;
+                     ^~
+exercises.c:162:23: error: comparison between pointer and integer [-Werror]
+       else if(top(P1) == '['){
+                       ^~
+exercises.c:163:21: error: comparison between pointer and integer [-Werror]
+          if(top(P2) != ']') return 0;
+                     ^~
+exercises.c:166:21: error: comparison between pointer and integer [-Werror]
+          if(top(P2) != '}') return 0;
+                     ^~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+3252530
