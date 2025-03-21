@@ -382,3 +382,58 @@ exercises.c:168:21: error: comparison between pointer and integer [-Werror]
 cc1.exe: all warnings being treated as errors
 Compilation failed
 9ef2971
+Fri, Mar 21, 2025 10:41:46 AM: 
+ exercises.c | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'parentesisBalanceados':
+exercises.c:141:23: error: passing argument 1 of 'first' from incompatible pointer type [-Werror=incompatible-pointer-types]
+    char *dato = first(cadena);
+                       ^~~~~~
+In file included from exercises.c:6:0,
+                 from test.c:5:
+arraylist.h:10:7: note: expected 'List * {aka struct List *}' but argument is of type 'char *'
+ void* first(List *L);
+       ^~~~~
+In file included from test.c:5:0:
+exercises.c:144:19: error: passing argument 1 of 'next' from incompatible pointer type [-Werror=incompatible-pointer-types]
+       dato = next(cadena);
+                   ^~~~~~
+In file included from exercises.c:6:0,
+                 from test.c:5:
+arraylist.h:14:7: note: expected 'List * {aka struct List *}' but argument is of type 'char *'
+ void* next(List *L);
+       ^~~~
+In file included from test.c:5:0:
+exercises.c:147:16: error: passing argument 1 of 'next' from incompatible pointer type [-Werror=incompatible-pointer-types]
+    dato = next(cadena);
+                ^~~~~~
+In file included from exercises.c:6:0,
+                 from test.c:5:
+arraylist.h:14:7: note: expected 'List * {aka struct List *}' but argument is of type 'char *'
+ void* next(List *L);
+       ^~~~
+In file included from test.c:5:0:
+exercises.c:150:19: error: passing argument 1 of 'next' from incompatible pointer type [-Werror=incompatible-pointer-types]
+       dato = next(cadena);
+                   ^~~~~~
+In file included from exercises.c:6:0,
+                 from test.c:5:
+arraylist.h:14:7: note: expected 'List * {aka struct List *}' but argument is of type 'char *'
+ void* next(List *L);
+       ^~~~
+In file included from test.c:5:0:
+exercises.c:175:14: error: unknown type name 's'
+    free(aux);s
+              ^
+exercises.c:176:4: error: parameter names (without types) in function declaration [-Werror]
+    free(P1);
+    ^~~~
+exercises.c:176:4: error: conflicting types for 'free'
+In file included from test.c:2:0:
+c:\mingw\include\stdlib.h:487:39: note: previous declaration of 'free' was here
+ _CRTIMP __cdecl __MINGW_NOTHROW  void free (void *);
+                                       ^~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+23dcd92

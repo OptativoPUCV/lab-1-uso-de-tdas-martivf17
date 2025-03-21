@@ -156,22 +156,23 @@ int parentesisBalanceados(char *cadena) {
    }
 
    while(top(P1) != NULL || top(P2) != NULL){
-      if(top(P1) == NULL || top(P2) == NULL) return 0;
-      
-      else if(top(P1) == '('){
-         if(top(P2) != ')') return 0;
+      char *open = top(P1);
+      char *close = top(P2);
+
+      if(*open == '('){
+         if(*close != ')') return 0;
       }
-      else if(top(P1) == '['){
-         if(top(P2) != ']') return 0;
+      else if(*open == '['){
+         if(*close != ']') return 0;
       }
       else{
-         if(top(P2) != '}') return 0;
+         if(*close != '}') return 0;
       }
 
       pop(P1);
       pop(P2);
    }
-   free(aux);
+   free(aux);s
    free(P1);
    free(P2);
 
