@@ -172,7 +172,7 @@ int parentesisBalanceados(char *cadena) {
       pop(P1);
       pop(P2);
    }
-   free(aux);s
+   free(aux);
    free(P1);
    free(P2);
 
