@@ -134,30 +134,46 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 */
 
 int parentesisBalanceados(char *cadena) {
-   Stack* P = create_stack();
+   Stack *P1 = create_stack();
+   Stack *P2 = create_stack();
+   Stack *aux = create_stack();
+
    for (int i=0 ; cadena[i] != '\0' ; i++){
-      if (cadena[i] == '(' || cadena[i] == '{' || cadena[i] == '['){
-         push(P, &cadena[i]);
-      }
-      else if (cadena[i] == ')' || cadena[i] == '}' || cadena[i] == ']'){
-         if (top(P) == NULL){
-            return 0;
+         if(cadena[i] == '(' || cadena[i] == '[' || cadena[i] == '{'){
+            push(P1, &cadena[i]);
          }
+         else if(cadena[i] == ')' || cadena[i] == ']' || cadena[i] == '}'){
+            push(aux, &cadena[i]);
+         }
+   }
 
-         char *parentesis = (char*)top(P);
-         if ((*parentesis == '(' && cadena[i] != ')') || 
-            (*parentesis == '{' && cadena[i] != '}') ||
-            (*parentesis == '[' && cadena[i] != ']')) {
-            return 0;
-         }
-         pop(P);
+   while(top(aux) != NULL){
+      push(P2, top(aux));
+      pop(aux);
+   }
+
+   while(top(P1) != NULL || top(P2) != NULL){
+      char *open = top(P1);
+      char *close = top(P2);
+
+      if(*open == '('){
+         if(*close != ')') return 0;
       }
+      else if(*open == '['){
+         if(*close != ']') return 0;
+      }
+      else{
+         if(*close != '}') return 0;
+      }
+
+      pop(P1);
+      pop(P2);
    }
-   if (top(P) == NULL){
-      return 1;
-   }
-   return 0;
+   free(aux);
+   free(P1);
+   free(P2);
+
+   return 1;
 }
-
 
 /* JDSKJKFKJDKJ*/
