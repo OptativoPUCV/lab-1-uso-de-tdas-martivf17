@@ -480,3 +480,8 @@ arraylist.h:14:7: note: expected 'List * {aka struct List *}' but argument is of
 cc1.exe: all warnings being treated as errors
 Compilation failed
 a8e4203
+Sat, Mar 22, 2025 10:22:11 AM: 
+ exercises.c | 15 ++++++---------
+ 1 file changed, 6 insertions(+), 9 deletions(-)
+ tests:  0|0
+0970680
